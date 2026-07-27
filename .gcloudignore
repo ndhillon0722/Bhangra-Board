@@ -1,0 +1,9 @@
+.gcloudignore
+.git
+.gitignore
+#!include:.gitignore
+
+media/
+requirements-dev.txt
+scripts/
+tests/

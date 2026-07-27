@@ -1,0 +1,20 @@
+.DS_Store
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# Audio working files and source-separation output.
+media/source/
+media/stems/
+media/masters/
+
+# Local tooling.
+.idea/
+.vscode/
+

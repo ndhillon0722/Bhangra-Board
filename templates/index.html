@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ef593f">
+    <meta
+      name="description"
+      content="Tap iconic Bhangra and Punjabi rap faces to play their famous sounds."
+    >
+    <title>Bhangra Board — Tap a face. Make some noise.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/board.css') }}?v=2">
+    <script src="{{ url_for('static', filename='js/board.js') }}?v=2" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#soundboard">Skip to the soundboard</a>
+
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="brand-lockup" aria-label="Bhangra Board">
+          <span class="brand-kicker" lang="pa">ਭੰਗੜਾ</span>
+          <h1>BHANGRA<br>BOARD</h1>
+          <span class="brand-burst" aria-hidden="true">ਬੱਲੇ!</span>
+        </div>
+
+        <div class="header-copy">
+          <p class="eyebrow">Famous voices. Tiny buttons. Big energy.</p>
+          <p class="intro">
+            Tap a face to drop a sound. Hit it again to rewind.
+            Layer a few if you’re feeling brave.
+          </p>
+          <div class="board-meta" aria-label="Soundboard totals">
+            <span><strong>{{ clip_count }}</strong> sounds</span>
+            <span><strong>{{ artist_count }}</strong> artists</span>
+          </div>
+        </div>
+
+        <div class="search-panel">
+          <label for="artist-search">Find an artist</label>
+          <div class="search-field">
+            <span aria-hidden="true">⌕</span>
+            <input
+              id="artist-search"
+              type="search"
+              name="artist"
+              placeholder="Diljit, Jazzy B…"
+              autocomplete="off"
+              spellcheck="false"
+            >
+            <kbd>/</kbd>
+          </div>
+          <p class="keyboard-hint">
+            Desktop: keys <kbd>1</kbd>–<kbd>0</kbd> play the first ten matches.
+          </p>
+        </div>
+      </header>
+
+      <main id="soundboard">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">The board</p>
+            <h2>Pick your button</h2>
+          </div>
+          <p id="results-count" aria-live="polite">{{ clip_count }} sounds ready</p>
+        </div>
+
+        <div class="no-results" id="no-results" hidden>
+          <span aria-hidden="true">ਢੋਲ</span>
+          <h3>No matching artist</h3>
+          <p>Try a shorter name or clear the search.</p>
+          <button type="button" id="clear-search">Clear search</button>
+        </div>
+
+        <ol class="sound-grid" id="sound-grid" aria-label="Bhangra sound clips">
+          {% for clip in clips %}
+            <li
+              class="sound-item"
+              data-artist="{{ clip.artist|lower }}"
+              data-phrase="{{ clip.phrase|lower }}"
+              style="--tile-index: {{ loop.index0 }}"
+            >
+              <button
+                class="sound-tile"
+                type="button"
+                data-clip-id="{{ clip.id }}"
+                data-artist="{{ clip.artist }}"
+                data-phrase="{{ clip.phrase }}"
+                aria-label="Play {{ clip.phrase }} by {{ clip.artist }}"
+                style="
+                  --image-position: {{ clip.image_position|default('50% 30%') }};
+                  --image-scale: {{ clip.image_scale|default(1.06) }};
+                  --image-origin: {{ clip.image_origin|default('50% 50%') }}
+                "
+              >
+                <span class="key-badge" aria-hidden="true">
+                  {% if loop.index <= 9 %}{{ loop.index }}{% elif loop.index == 10 %}0{% endif %}
+                </span>
+                <span class="portrait-halo" aria-hidden="true"></span>
+                <span class="portrait-frame" aria-hidden="true">
+                  <span class="portrait-fallback">
+                    {{ clip.artist.split()|map('first')|join('') }}
+                  </span>
+                  <img
+                    src="{{ url_for('static', filename=clip.image) }}?v=2"
+                    alt=""
+                    width="420"
+                    height="520"
+                    loading="{% if loop.index <= 12 %}eager{% else %}lazy{% endif %}"
+                    decoding="async"
+                  >
+                </span>
+                <span class="tile-label">
+                  <strong>{{ clip.artist }}</strong>
+                  <span>{{ clip.phrase }}</span>
+                </span>
+                <span class="play-ripple" aria-hidden="true"></span>
+                <audio
+                  preload="none"
+                  src="{{ url_for('static', filename=clip.audio) }}"
+                ></audio>
+              </button>
+            </li>
+          {% endfor %}
+        </ol>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <span class="footer-mark" lang="pa">ਭੰਗੜਾ</span>
+          <p>Built for loud friends and good speakers.</p>
+        </div>
+        <div class="footer-actions">
+          <button type="button" data-dialog-open="credits-dialog">Photo credits</button>
+          <span aria-hidden="true">•</span>
+          <a href="mailto:hello@bhangraboard.com">Send a suggestion</a>
+        </div>
+      </footer>
+    </div>
+
+    <div class="now-playing" id="now-playing" role="status" aria-live="polite">
+      <span class="equalizer" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </span>
+      <span>
+        <small>Now playing</small>
+        <strong id="now-playing-text">Choose a face</strong>
+      </span>
+    </div>
+
+    <dialog class="credits-dialog" id="credits-dialog">
+      <form method="dialog">
+        <button class="dialog-close" value="close" aria-label="Close photo credits">×</button>
+        <p class="eyebrow">Thank you, photographers</p>
+        <h2>Photo credits</h2>
+        <p>
+          These prototype portraits are cropped and color-treated from
+          Creative Commons photographs. The licenses cover the photographs;
+          a separate publicity-rights review is required before public launch.
+        </p>
+        <ul>
+          <li>
+            <a href="https://commons.wikimedia.org/wiki/File:Daler_Mehndi_on_Stage.jpg">
+              Daler Mehndi
+            </a>
+            — Phronesisindia, CC BY-SA 4.0
+          </li>
+          <li>
+            <a href="https://commons.wikimedia.org/wiki/File%3ADiljit_Dosanjh_-_IIFA_2017_Green_Carpet_%2835586489253%29_%28cropped%29.jpg">
+              Diljit Dosanjh
+            </a>
+            — Laura Lee Dooley, CC BY 2.0
+          </li>
+          <li>
+            <a href="https://commons.wikimedia.org/wiki/File:Gippy_Grewal.jpg">
+              Gippy Grewal
+            </a>
+            — ABP Sanjha, CC BY 3.0
+          </li>
+          <li>
+            <a href="https://commons.wikimedia.org/wiki/File%3AJazzy-B-grace-Kapil-Sharma-and-Ginni-Chatrath%E2%80%99s-wedding-reception2-4.jpg">
+              Jazzy B
+            </a>
+            — Bollywood Hungama, CC BY 3.0
+          </li>
+          <li>
+            <a href="https://commons.wikimedia.org/wiki/File:Yo_Yo_Honey_Singh_in_2016.jpg">
+              Yo Yo Honey Singh
+            </a>
+            — Bollywood Hungama, CC BY 3.0
+          </li>
+        </ul>
+      </form>
+    </dialog>
+  </body>
+</html>
