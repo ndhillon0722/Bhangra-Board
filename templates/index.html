@@ -9,7 +9,7 @@
       content="Tap iconic Bhangra and Punjabi rap faces to play their famous sounds."
     >
     <title>Bhangra Board — Tap a face. Make some noise.</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/board.css') }}?v=2">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/board.css') }}?v=3">
     <script src="{{ url_for('static', filename='js/board.js') }}?v=2" defer></script>
   </head>
   <body>
@@ -130,12 +130,14 @@
           <p>Built for loud friends and good speakers.</p>
         </div>
         <div class="footer-actions">
-          <a href="{{ url_for('audio_review') }}">Audio Lab</a>
-          <span aria-hidden="true">•</span>
           <button type="button" data-dialog-open="credits-dialog">Portrait notes</button>
           <span aria-hidden="true">•</span>
           <a href="mailto:yarr@bhangraboard.xyz">Send a suggestion</a>
         </div>
+        <p class="footer-dedication">
+          For my beautiful wife, Nehu. These artists brought the beats; I
+          brought the questionable moves. Somehow, it worked. ❤️
+        </p>
       </footer>
     </div>
 
@@ -152,14 +154,13 @@
     <dialog class="credits-dialog" id="credits-dialog">
       <form method="dialog">
         <button class="dialog-close" value="close" aria-label="Close portrait notes">×</button>
-        <p class="eyebrow">Prototype artwork</p>
+        <p class="eyebrow">About the artwork</p>
         <h2>Portrait notes</h2>
         <p>
-          Every artist portrait on this admin-only development board is a
-          generated, review-only likeness in a shared visual style. The
-          portraits are not official artist artwork, and a separate
-          likeness and publicity-rights review is required before public
-          launch.
+          Every artist portrait on Bhangra Board is a generated likeness
+          created in a shared visual style. The portraits are not official
+          artist artwork and do not imply an artist’s endorsement of this
+          project.
         </p>
       </form>
     </dialog>
