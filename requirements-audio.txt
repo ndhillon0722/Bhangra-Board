@@ -1,0 +1,4 @@
+# Local audio workstation dependencies. These are intentionally separate from
+# the lightweight App Engine runtime requirements.
+audio-separator[cpu]==0.44.5
+yt-dlp==2026.6.9
