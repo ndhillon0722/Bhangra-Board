@@ -30,6 +30,7 @@ def test_index_renders_enabled_board(client):
 
     assert response.status_code == 200
     assert "<title>Bhangra Board" in page
+    assert "/static/css/board.css?v=3" in page
     assert 'class="sound-tile"' in page
     assert f"{len(enabled)} sounds" in page
     assert (
