@@ -136,6 +136,33 @@ def test_catalog_selection_contains_every_live_clip_and_explicit_staging():
     assert len({clip["id"] for clip in selected}) == len(selected)
 
 
+def test_guru_randhawa_candidates_are_staged_for_review_only():
+    clips = {clip["id"]: clip for clip in load_manifest_clips()}
+    staged = set(read_json(DEFAULT_SELECTION)["staged_clip_ids"])
+    guru_ids = {
+        "guru-randhawa-lahore",
+        "guru-randhawa-high-rated-gabru",
+        "guru-randhawa-suit-suit",
+        "guru-randhawa-ban-ja-rani",
+        "guru-randhawa-ishare-tere",
+        "guru-randhawa-slowly-slowly",
+        "guru-randhawa-made-in-india",
+        "guru-randhawa-koi-na",
+        "guru-randhawa-patola",
+        "guru-randhawa-downtown",
+    }
+
+    assert guru_ids <= staged
+    for clip_id in guru_ids:
+        clip = clips[clip_id]
+        assert clip["enabled"] is False
+        assert clip["grade"] == "candidate"
+        assert clip["image"] == "images/artists/guru-randhawa.jpg"
+        assert clip["source_channel"] == "T-Series"
+        assert clip["clearance_status"] == "needs-confirmation"
+        assert "audio_review_status" not in clip
+
+
 def test_completed_audio_reviews_are_reflected_on_the_board():
     reviewed = [
         clip
