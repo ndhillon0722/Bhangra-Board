@@ -41,8 +41,8 @@ def test_index_renders_enabled_board(client):
     assert "hello@bhangraboard.com" not in page
     assert 'href="/audio-review"' not in page
     assert 'href="/admin"' not in page
-    assert "Dedicated to my beautiful wife, Nehu" in page
-    assert "I just took the credit. ❤️" in page
+    assert "For my beautiful wife, Nehu" in page
+    assert "questionable moves. Somehow, it worked. ❤️" in page
     assert "Unconfirmed artist" not in page
 
 
