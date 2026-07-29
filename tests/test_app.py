@@ -36,6 +36,8 @@ def test_index_renders_enabled_board(client):
         f"<strong>{len({clip['artist'] for clip in enabled})}</strong> artists"
         in page
     )
+    assert 'href="mailto:yarr@bhangraboard.xyz"' in page
+    assert "hello@bhangraboard.com" not in page
     assert "Unconfirmed artist" not in page
 
 
