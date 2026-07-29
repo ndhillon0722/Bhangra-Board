@@ -1,0 +1,277 @@
+{
+  "version": 1,
+  "target_sounds_per_artist": 3,
+  "source_policy": "authorized-or-owner-supplied",
+  "artists": [
+    {
+      "id": "malkit-singh",
+      "artist": "Malkit Singh",
+      "lane": "legends",
+      "priority": 1,
+      "candidate_tracks": ["Gur Nalo Ishq Mitha", "Tutak Tutak Tutiya", "Jind Mahi"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "surjit-bindrakhia",
+      "artist": "Surjit Bindrakhia",
+      "lane": "legends",
+      "priority": 1,
+      "candidate_tracks": ["Tera Yaar Bolda", "Dupatta Tera Sat Rang Da", "Bas Kar Bas Kar"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "kuldeep-manak",
+      "artist": "Kuldeep Manak",
+      "lane": "legends",
+      "priority": 1,
+      "candidate_tracks": ["Tere Tille Ton", "Maa Hundi Ae Maa", "Kali Teri Gut"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "amar-singh-chamkila-amarjot",
+      "artist": "Amar Singh Chamkila & Amarjot",
+      "lane": "legends",
+      "priority": 1,
+      "candidate_tracks": ["Pehle Lalkare Naal", "Takue Te Takua", "Baba Tera Nankana"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "surinder-shinda",
+      "artist": "Surinder Shinda",
+      "lane": "legends",
+      "priority": 1,
+      "candidate_tracks": ["Putt Jattan De", "Truck Billiya", "Badla Le Layeen Sohneya"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "sardool-sikander",
+      "artist": "Sardool Sikander",
+      "lane": "legends",
+      "priority": 2,
+      "candidate_tracks": ["Husna De Malko", "Ek Charkha Gali De Vich", "Sanu Ishq Brandi Charh Gayi"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "harbhajan-mann",
+      "artist": "Harbhajan Mann",
+      "lane": "legends",
+      "priority": 2,
+      "candidate_tracks": ["Gallan Goriyan", "Mirza", "Teri Bhij Gayi Kurti"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "babbu-maan",
+      "artist": "Babbu Maan",
+      "lane": "legends",
+      "priority": 1,
+      "candidate_tracks": ["Mitran Di Chhatri", "Saun Di Jhadi", "Pakki Kanak"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "sukhbir",
+      "artist": "Sukhbir",
+      "lane": "legends",
+      "priority": 1,
+      "candidate_tracks": ["Ishq Tera Tadpave", "Sauda Khara Khara", "Gal Ban Gayi"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "panjabi-mc",
+      "artist": "Panjabi MC",
+      "lane": "legends",
+      "priority": 1,
+      "candidate_tracks": ["Mundian To Bach Ke", "Jogi", "Mirza Part 2"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "karan-aujla",
+      "artist": "Karan Aujla",
+      "lane": "modern",
+      "priority": 1,
+      "candidate_tracks": ["52 Bars", "Softly", "Tauba Tauba"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "ap-dhillon",
+      "artist": "AP Dhillon",
+      "lane": "modern",
+      "priority": 1,
+      "candidate_tracks": ["Brown Munde", "Excuses", "Insane"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "gurinder-gill",
+      "artist": "Gurinder Gill",
+      "lane": "modern",
+      "priority": 1,
+      "candidate_tracks": ["Droptop", "Faraar", "Brown Munde"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "shubh",
+      "artist": "Shubh",
+      "lane": "modern",
+      "priority": 1,
+      "candidate_tracks": ["We Rollin", "Baller", "Cheques"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "sidhu-moose-wala",
+      "artist": "Sidhu Moose Wala",
+      "lane": "modern",
+      "priority": 1,
+      "candidate_tracks": ["295", "So High", "The Last Ride"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "ammy-virk",
+      "artist": "Ammy Virk",
+      "lane": "modern",
+      "priority": 2,
+      "candidate_tracks": ["Qismat", "Wang Da Naap", "Bullet vs Chammak Challo"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "ranjit-bawa",
+      "artist": "Ranjit Bawa",
+      "lane": "modern",
+      "priority": 2,
+      "candidate_tracks": ["Jean", "Yaari Chandigarh Waliye", "Mitti Da Bawa"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "navaan-sandhu",
+      "artist": "Navaan Sandhu",
+      "lane": "modern",
+      "priority": 2,
+      "candidate_tracks": ["Radio", "Unbothered", "In Demand"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "tegi-pannu",
+      "artist": "Tegi Pannu",
+      "lane": "modern",
+      "priority": 2,
+      "candidate_tracks": ["Schedule", "One Question", "Roll Deep"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "raf-saperra",
+      "artist": "Raf-Saperra",
+      "lane": "modern",
+      "priority": 1,
+      "candidate_tracks": ["Snake Charmer", "N.L.S.", "Modern Mirza"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "jasmine-sandlas",
+      "artist": "Jasmine Sandlas",
+      "lane": "women",
+      "priority": 1,
+      "candidate_tracks": ["Illegal Weapon", "Yaar Na Miley", "Sip Sip"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "miss-pooja",
+      "artist": "Miss Pooja",
+      "lane": "women",
+      "priority": 1,
+      "candidate_tracks": ["Sohnea", "Paani", "Second Hand Jawaani"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "gurlez-akhtar",
+      "artist": "Gurlez Akhtar",
+      "lane": "women",
+      "priority": 1,
+      "candidate_tracks": ["Defaulter", "8 Raflaan", "Chandigarh Shehar"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "nimrat-khaira",
+      "artist": "Nimrat Khaira",
+      "lane": "women",
+      "priority": 1,
+      "candidate_tracks": ["Designer", "Suit", "Brobar Boli"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "kaur-b",
+      "artist": "Kaur B",
+      "lane": "women",
+      "priority": 2,
+      "candidate_tracks": ["Paranda", "Lahore Da Paranda", "Just Desi"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "bohemia",
+      "artist": "Bohemia",
+      "lane": "rap-diaspora",
+      "priority": 1,
+      "candidate_tracks": ["Kali Denali", "School Di Kitaab", "Ek Tera Pyar"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "fateh",
+      "artist": "Fateh",
+      "lane": "rap-diaspora",
+      "priority": 2,
+      "candidate_tracks": ["Naiyo Jaan De", "Black Suit", "Paggan"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "imran-khan",
+      "artist": "Imran Khan",
+      "lane": "rap-diaspora",
+      "priority": 1,
+      "candidate_tracks": ["Amplifier", "Bewafa", "Satisfya"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "the-prophec",
+      "artist": "The PropheC",
+      "lane": "rap-diaspora",
+      "priority": 2,
+      "candidate_tracks": ["Kina Chir", "Close", "Questions"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    },
+    {
+      "id": "mickey-singh",
+      "artist": "Mickey Singh",
+      "lane": "rap-diaspora",
+      "priority": 2,
+      "candidate_tracks": ["Bad Girl", "Phone", "Yarri Yeah"],
+      "source_status": "needed",
+      "portrait_status": "needed"
+    }
+  ]
+}

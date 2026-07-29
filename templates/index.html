@@ -87,9 +87,9 @@
                 data-phrase="{{ clip.phrase }}"
                 aria-label="Play {{ clip.phrase }} by {{ clip.artist }}"
                 style="
-                  --image-position: {{ clip.image_position|default('50% 30%') }};
-                  --image-scale: {{ clip.image_scale|default(1.06) }};
-                  --image-origin: {{ clip.image_origin|default('50% 50%') }}
+                  --image-position: 50% 50%;
+                  --image-scale: 1;
+                  --image-origin: 50% 50%
                 "
               >
                 <span class="key-badge" aria-hidden="true">
@@ -101,7 +101,7 @@
                     {{ clip.artist.split()|map('first')|join('') }}
                   </span>
                   <img
-                    src="{{ url_for('static', filename=clip.image) }}?v=2"
+                    src="{{ url_for('static', filename=clip.image) }}?v=3"
                     alt=""
                     width="420"
                     height="520"
@@ -130,7 +130,9 @@
           <p>Built for loud friends and good speakers.</p>
         </div>
         <div class="footer-actions">
-          <button type="button" data-dialog-open="credits-dialog">Photo credits</button>
+          <a href="{{ url_for('audio_review') }}">Audio Lab</a>
+          <span aria-hidden="true">•</span>
+          <button type="button" data-dialog-open="credits-dialog">Portrait notes</button>
           <span aria-hidden="true">•</span>
           <a href="mailto:hello@bhangraboard.com">Send a suggestion</a>
         </div>
@@ -149,46 +151,16 @@
 
     <dialog class="credits-dialog" id="credits-dialog">
       <form method="dialog">
-        <button class="dialog-close" value="close" aria-label="Close photo credits">×</button>
-        <p class="eyebrow">Thank you, photographers</p>
-        <h2>Photo credits</h2>
+        <button class="dialog-close" value="close" aria-label="Close portrait notes">×</button>
+        <p class="eyebrow">Prototype artwork</p>
+        <h2>Portrait notes</h2>
         <p>
-          These prototype portraits are cropped and color-treated from
-          Creative Commons photographs. The licenses cover the photographs;
-          a separate publicity-rights review is required before public launch.
+          Every artist portrait on this admin-only development board is a
+          generated, review-only likeness in a shared visual style. The
+          portraits are not official artist artwork, and a separate
+          likeness and publicity-rights review is required before public
+          launch.
         </p>
-        <ul>
-          <li>
-            <a href="https://commons.wikimedia.org/wiki/File:Daler_Mehndi_on_Stage.jpg">
-              Daler Mehndi
-            </a>
-            — Phronesisindia, CC BY-SA 4.0
-          </li>
-          <li>
-            <a href="https://commons.wikimedia.org/wiki/File%3ADiljit_Dosanjh_-_IIFA_2017_Green_Carpet_%2835586489253%29_%28cropped%29.jpg">
-              Diljit Dosanjh
-            </a>
-            — Laura Lee Dooley, CC BY 2.0
-          </li>
-          <li>
-            <a href="https://commons.wikimedia.org/wiki/File:Gippy_Grewal.jpg">
-              Gippy Grewal
-            </a>
-            — ABP Sanjha, CC BY 3.0
-          </li>
-          <li>
-            <a href="https://commons.wikimedia.org/wiki/File%3AJazzy-B-grace-Kapil-Sharma-and-Ginni-Chatrath%E2%80%99s-wedding-reception2-4.jpg">
-              Jazzy B
-            </a>
-            — Bollywood Hungama, CC BY 3.0
-          </li>
-          <li>
-            <a href="https://commons.wikimedia.org/wiki/File:Yo_Yo_Honey_Singh_in_2016.jpg">
-              Yo Yo Honey Singh
-            </a>
-            — Bollywood Hungama, CC BY 3.0
-          </li>
-        </ul>
       </form>
     </dialog>
   </body>

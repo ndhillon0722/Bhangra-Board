@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "voice_forward_bed_db": -22.0,
+  "profiles": [
+    {
+      "id": "bs-roformer",
+      "label": "BS-RoFormer Viperx 1297",
+      "model": "model_bs_roformer_ep_317_sdr_12.9755.ckpt",
+      "description": "High-SDR two-stem model and the primary vocal-isolation candidate.",
+      "extra_args": []
+    },
+    {
+      "id": "melband-roformer",
+      "label": "Mel-RoFormer Viperx 1143",
+      "model": "model_mel_band_roformer_ep_3005_sdr_11.4360.ckpt",
+      "description": "Supported Mel-RoFormer candidate with strong vocal continuity.",
+      "extra_args": []
+    },
+    {
+      "id": "mdx-vocal-ft",
+      "label": "UVR MDX Vocal Fine-tuned",
+      "model": "UVR-MDX-NET-Voc_FT.onnx",
+      "description": "Fast MDX fallback that can outperform RoFormer on some dense mixes.",
+      "extra_args": [
+        "--mdx_enable_denoise"
+      ]
+    },
+    {
+      "id": "htdemucs-ft",
+      "label": "HTDemucs Fine-tuned",
+      "model": "htdemucs_ft.yaml",
+      "description": "The previous pipeline model, retained as a comparison baseline.",
+      "extra_args": []
+    }
+  ],
+  "quality_fields": [
+    {
+      "id": "vocal_clarity",
+      "label": "Vocal clarity",
+      "help": "Is the phrase intelligible and full-bodied?"
+    },
+    {
+      "id": "music_suppression",
+      "label": "Music suppression",
+      "help": "How little instrumental bleed remains?"
+    },
+    {
+      "id": "artifact_control",
+      "label": "Artifact control",
+      "help": "How free is the vocal from warble, ringing, and metallic damage?"
+    },
+    {
+      "id": "recognizability",
+      "label": "Recognizability",
+      "help": "Does the clip instantly read as the intended artist and phrase?"
+    }
+  ]
+}

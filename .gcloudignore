@@ -3,7 +3,14 @@
 .gitignore
 #!include:.gitignore
 
+# Git excludes the private AudioLab bundle because this repository is public.
+# App Engine still needs it for the admin-gated review surface.
+!content/review_queue.json
+!static/review-audio/
+!static/review-audio/**
+
 media/
 requirements-dev.txt
+requirements-audio.txt
 scripts/
 tests/

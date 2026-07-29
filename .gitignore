@@ -1,6 +1,7 @@
 .DS_Store
 .env
 .venv/
+.audio-venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -13,8 +14,14 @@ coverage.xml
 media/source/
 media/stems/
 media/masters/
+media/models/
+media/review/
+
+# Deployable AudioLab data remains local and is uploaded only through the
+# admin-gated App Engine descriptors. Do not publish it in the public repo.
+content/review_queue.json
+static/review-audio/
 
 # Local tooling.
 .idea/
 .vscode/
-

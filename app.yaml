@@ -15,7 +15,33 @@ automatic_scaling:
 
 default_expiration: "7d"
 
+env_variables:
+  REVIEW_BUCKET: "bhangraboard-dev.appspot.com"
+  REVIEW_PREFIX: "audio-review/reviews"
+
 handlers:
+  - url: /static/review-audio
+    static_dir: static/review-audio
+    secure: always
+    redirect_http_response_code: 301
+    login: admin
+    auth_fail_action: redirect
+    expiration: "0s"
+
+  - url: /audio-review/api/.*
+    script: auto
+    secure: always
+    redirect_http_response_code: 301
+    login: admin
+    auth_fail_action: unauthorized
+
+  - url: /audio-review.*
+    script: auto
+    secure: always
+    redirect_http_response_code: 301
+    login: admin
+    auth_fail_action: redirect
+
   - url: /static
     static_dir: static
     secure: always

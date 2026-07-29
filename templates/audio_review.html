@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audio Lab · Bhangra Board</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/audio-review.css') }}"
+    >
+    <script
+      src="{{ url_for('static', filename='js/audio-review.js') }}"
+      defer
+    ></script>
+  </head>
+  <body>
+    <header class="lab-header">
+      <div>
+        <p class="eyebrow">Bhangra Board</p>
+        <h1>Audio Lab</h1>
+        <p>Compare separator models, score the voice, approve one master.</p>
+        <a class="board-link" href="/">← Back to the sound board</a>
+      </div>
+      <div class="progress-shell" aria-label="Review progress">
+        <strong id="progress-count">0 / 0</strong>
+        <div class="progress-track" aria-hidden="true">
+          <span id="progress-bar"></span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="empty-state" id="empty-state" hidden>
+        <h2>No review variants yet</h2>
+        <p>The current dev version does not contain an audio review queue.</p>
+      </section>
+
+      <article class="review-card" id="review-card" hidden>
+        <nav class="clip-nav" aria-label="Clip navigation">
+          <button type="button" id="previous-clip">← Previous</button>
+          <span id="clip-position"></span>
+          <button type="button" id="next-clip">Next →</button>
+        </nav>
+
+        <div class="clip-heading">
+          <div>
+            <p class="eyebrow" id="clip-grade"></p>
+            <h2 id="clip-artist"></h2>
+            <p id="clip-phrase"></p>
+          </div>
+          <p class="save-state" id="save-state" role="status"></p>
+        </div>
+
+        <section aria-labelledby="variants-heading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Blind-ish bake-off</p>
+              <h3 id="variants-heading">Choose the strongest voice</h3>
+            </div>
+            <p>Keys <kbd>1</kbd>–<kbd>9</kbd>, then <kbd>0</kbd>, play variants.</p>
+          </div>
+          <div class="variant-grid" id="variant-grid"></div>
+        </section>
+
+        <section class="score-section" aria-labelledby="score-heading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Quality gate</p>
+              <h3 id="score-heading">Score what you hear</h3>
+            </div>
+            <p>1 = poor · 5 = excellent</p>
+          </div>
+          <div class="score-grid" id="score-grid"></div>
+        </section>
+
+        <section class="decision-section" aria-labelledby="decision-heading">
+          <div>
+            <p class="eyebrow">Editorial call</p>
+            <h3 id="decision-heading">What happens next?</h3>
+          </div>
+          <div class="decision-options">
+            <label>
+              <input type="radio" name="decision" value="approve">
+              <span><strong>Approve</strong> Use the selected variant</span>
+            </label>
+            <label>
+              <input type="radio" name="decision" value="hold">
+              <span><strong>Hold</strong> Revisit this comparison</span>
+            </label>
+            <label>
+              <input type="radio" name="decision" value="replace-source">
+              <span><strong>Replace source</strong> No model saved it</span>
+            </label>
+          </div>
+          <label class="notes-label" for="review-notes">Notes</label>
+          <textarea
+            id="review-notes"
+            maxlength="2000"
+            placeholder="Music bleed, damaged consonants, better source idea…"
+          ></textarea>
+          <div class="actions">
+            <button type="button" class="secondary-action" id="save-review">
+              Save review
+            </button>
+            <button type="button" class="primary-action" id="save-next">
+              Save &amp; next
+            </button>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <template id="variant-template">
+      <label class="variant-card">
+        <span class="variant-key"></span>
+        <input type="radio" name="selected-variant">
+        <span class="variant-label"></span>
+        <audio controls preload="metadata"></audio>
+      </label>
+    </template>
+
+    <template id="score-template">
+      <fieldset class="score-card">
+        <legend></legend>
+        <p></p>
+        <div class="score-options"></div>
+      </fieldset>
+    </template>
+  </body>
+</html>
