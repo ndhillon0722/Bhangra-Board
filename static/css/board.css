@@ -564,6 +564,7 @@ main {
 
 .site-footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 24px;
   align-items: center;
@@ -588,12 +589,25 @@ main {
 
 .footer-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   align-items: center;
 }
 
 .footer-actions button {
   padding: 0;
+}
+
+.site-footer .footer-dedication {
+  display: block;
+  flex: 0 0 100%;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 240, 198, 0.45);
+  color: var(--cream);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  line-height: 1.55;
+  text-align: center;
 }
 
 .now-playing {

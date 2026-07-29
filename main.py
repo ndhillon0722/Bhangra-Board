@@ -343,6 +343,7 @@ def create_app(test_config: dict[str, Any] | None = None) -> Flask:
         )
 
     @app.get("/audio-review")
+    @app.get("/admin", strict_slashes=False)
     def audio_review() -> str:
         return render_template("audio_review.html")
 
@@ -412,7 +413,11 @@ def create_app(test_config: dict[str, Any] | None = None) -> Flask:
             "Permissions-Policy",
             "camera=(), geolocation=(), microphone=(), payment=()",
         )
-        if request.path == "/" or request.path.startswith("/audio-review"):
+        if (
+            request.path == "/"
+            or request.path.startswith("/admin")
+            or request.path.startswith("/audio-review")
+        ):
             response.headers["Cache-Control"] = "private, no-store"
         return response
 

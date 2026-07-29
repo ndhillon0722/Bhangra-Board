@@ -38,6 +38,10 @@ def test_index_renders_enabled_board(client):
     )
     assert 'href="mailto:yarr@bhangraboard.xyz"' in page
     assert "hello@bhangraboard.com" not in page
+    assert 'href="/audio-review"' not in page
+    assert 'href="/admin"' not in page
+    assert "Dedicated to my beautiful wife, Nehu" in page
+    assert "I just took the credit. ❤️" in page
     assert "Unconfirmed artist" not in page
 
 
@@ -48,7 +52,19 @@ def test_index_uses_consistent_generated_portrait_treatment(client):
     assert "--image-position: 50% 50%;" in page
     assert "--image-scale: 1;" in page
     assert "Every artist portrait" in page
+    assert "About the artwork" in page
+    assert "do not imply an artist’s endorsement" in page
+    assert "admin-only development board" not in page
+    assert "required before public launch" not in page
     assert "commons.wikimedia.org" not in page
+
+
+def test_admin_alias_serves_audio_lab_without_public_navigation(client):
+    for path in ("/admin", "/admin/", "/audio-review"):
+        response = client.get(path)
+        assert response.status_code == 200
+        assert "Audio Lab" in response.get_data(as_text=True)
+        assert response.headers["Cache-Control"] == "private, no-store"
 
 
 def test_healthz_reports_content_totals(client):
@@ -323,6 +339,7 @@ def test_app_yaml_explicitly_admin_gates_every_review_surface():
         "/static/review-audio",
         "/audio-review/api/.*",
         "/audio-review.*",
+        "/admin.*",
         "/static",
         "/.*",
     ):
@@ -343,6 +360,7 @@ def test_prod_yaml_exposes_only_the_soundboard():
         "/static/review-audio",
         "/audio-review/api/.*",
         "/audio-review.*",
+        "/admin.*",
     ):
         handler = app_engine_handler(prod_yaml, url)
         assert "login: admin" in handler
@@ -353,6 +371,9 @@ def test_prod_yaml_exposes_only_the_soundboard():
     )
     assert "auth_fail_action: redirect" in app_engine_handler(
         prod_yaml, "/audio-review.*"
+    )
+    assert "auth_fail_action: redirect" in app_engine_handler(
+        prod_yaml, "/admin.*"
     )
     assert "auth_fail_action: redirect" in app_engine_handler(
         prod_yaml, "/static/review-audio"

@@ -178,8 +178,10 @@ Track source and portrait permissions before enabling a candidate.
 
 `app.prod.yaml` is the production configuration. The main soundboard and its
 ordinary static assets are public over HTTPS. AudioLab, its API, and all review
-audio remain protected by `login: admin`. A signed-in user with Viewer, Editor,
-Owner, or App Engine App Admin on the production project can enter AudioLab.
+audio remain protected by `login: admin`. AudioLab is available at `/admin`
+without being linked from the public board; `/audio-review` remains available
+for existing bookmarks. A signed-in user with Viewer, Editor, Owner, or App
+Engine App Admin on the production project can enter AudioLab.
 
 Authenticate and select the existing project:
 
